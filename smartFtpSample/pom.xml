@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>SmartFtpSample</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <!-- 设置当前项目源码使用字符编码为UTF-8 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 设置当前项目所需要的JDK版本 Open JDK下载地址:https://jdk.java.net/ -->
+        <java.version>1.8</java.version>
+        <!-- 设置当前项目编译所需要的JDK版本 Open JDK下载地址:https://jdk.java.net/ -->
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- 设置maven编译插件版本,可通过下面网址查看最新的版本-->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
+        <!-- 项目所使用第三方依赖jar包的版本,建议以后都使用这种方式,方便今后维护和升级 -->
+        <lombok.version>1.18.10</lombok.version>
+        <commons.net.version>3.6</commons.net.version>
+        <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
+        <jsch.version>0.1.55</jsch.version>
+        <sshj.version>0.27.0</sshj.version>
+    </properties>
+
+    <dependencies>
+        <!--added lombok support -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--added logback as log lib -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- added Ftp and FTPS support -->
+        <!-- https://mvnrepository.com/artifact/commons-net/commons-net -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>${commons.net.version}</version>
+        </dependency>
+
+        <!-- added XFtp support -->
+        <!-- https://mvnrepository.com/artifact/com.jcraft/jsch -->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>${jsch.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hierynomus</groupId>
+            <artifactId>sshj</artifactId>
+            <version>${sshj.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--该插件限定Maven打包时所使用的版本,避免出现版本不匹配问题-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
