@@ -21,7 +21,7 @@
         <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
         <!-- 项目所使用第三方依赖jar包的版本,建议以后都使用这种方式,方便今后维护和升级 -->
         <lombok.version>1.18.10</lombok.version>
-        <commons.net.version>3.6</commons.net.version>
+        <commons.net.version>3.9.0</commons.net.version>
         <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
         <jsch.version>0.1.55</jsch.version>
         <sshj.version>0.27.0</sshj.version>
